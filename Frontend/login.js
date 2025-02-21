@@ -1,30 +1,21 @@
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  const errorMessage = document.getElementById("error-message");
+const showHiddenPass = (loginPass, loginEye) =>{
+  const input = document.getElementById(loginPass),
+        iconEye = document.getElementById(loginEye)
 
-  if (username === "admin" && password === "password123") {
-      alert("Login successful!");
-      window.location.href = "dashboard.html";
-  } else {
-      errorMessage.textContent = "Invalid username or password";
-  }
-});
+  iconEye.addEventListener('click', () =>{
+     if(input.type === 'password'){
+        input.type = 'text'
 
-document.getElementById("signupForm")?.addEventListener("submit", function(event) {
-  event.preventDefault();
-  alert("Signup successful! Redirecting to login...");
-  showPage('login');
-});
+        iconEye.classList.add('ri-eye-line')
+        iconEye.classList.remove('ri-eye-off-line')
+     } else{
+        input.type = 'password'
 
-function showPage(pageId) {
-  document.querySelectorAll('.page').forEach(page => {
-      page.style.display = 'none';
-  });
-  document.getElementById(pageId).style.display = 'block';
+        iconEye.classList.remove('ri-eye-line')
+        iconEye.classList.add('ri-eye-off-line')
+     }
+  })
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  showPage('home');
-});
+showHiddenPass('login-pass','login-eye')
+
