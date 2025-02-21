@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="sign_up.css">
+
+    <title>Health_care_SignUp</title>
+</head>
+<body>
+    <div class="signup">
+        <img src="tmp.jpg" alt="signup image" class="signup__img">
+
+        <form action="signup.php" method="POST" class="signup__form">
+            <h1 class="signup__title">Sign Up</h1>
+
+            <div class="signup__content">
+                <div class="signup__box">
+                    <i class="ri-user-3-line signup__icon"></i>
+                    <div class="signup__box-input">
+                        <input type="text" required class="signup__input" id="signup-name" name="name" placeholder=" ">
+                        <label for="signup-name" class="signup__label">Full Name</label>
+                    </div>
+                </div>
+
+                <div class="signup__box">
+                    <i class="ri-mail-line signup__icon"></i>
+                    <div class="signup__box-input">
+                        <input type="email" required class="signup__input" id="signup-email" name="email" placeholder=" ">
+                        <label for="signup-email" class="signup__label">Email</label>
+                    </div>
+                </div>
+
+                <div class="signup__box">
+                    <i class="ri-phone-line signup__icon"></i>
+                    <div class="signup__box-input">
+                        <input type="tel" required class="signup__input" id="signup-mob" name="mobile" pattern="[0-9]{10}" placeholder=" ">
+                        <label for="signup-mob" class="signup__label">Mobile Number</label>
+                    </div>
+                </div>
+
+                <div class="signup__box">
+                    <i class="ri-lock-2-line signup__icon"></i>
+                    <div class="signup__box-input">
+                        <input type="password" required class="signup__input" id="signup-pass" name="password" placeholder=" ">
+                        <label for="signup-pass" class="signup__label">Password</label>
+                        <i class="ri-eye-off-line signup__eye" id="signup-eye"></i>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="signup__button">Sign Up</button>
+
+            <p class="signup__login">
+                Already have an account? <a href="login.html">Login</a>
+            </p>
+        </form>
+    </div>
+    
+    <script src="sign_up.js"></script>
+</body>
+</html>

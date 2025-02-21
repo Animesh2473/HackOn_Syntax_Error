@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medcare | Hospital Website</title> 
+    <link rel="shortcut icon" href="image/heartbeat-solid.svg" type="image/x-icon">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="logo"><i class="fas fa-heartbeat">Drug Discovery</i></a>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#services">services</a>
+            <a href="#about">about</a>
+           
+        </nav>
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </div>
+
+    <section class="home" id="home">
+        <div class="image">
+            <img src="about-img.svg" alt="home-img.svg">
+        </div>
+        <div class="content">
+            <h3 style="margin: 0%;">stay safe, stay healthy</h3>
+            
+            <!-- Multi-Select Dropdown for Symptoms -->
+            <div class="dropdown">
+            <h2>Symptoms:</h2>
+
+                <div class="dropdown-btn" onclick="toggleDropdown()">Select Symptoms</div>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" value="Dizziness"> Dizziness</label>
+                    <label><input type="checkbox" value="Shortness of Breath"> Shortness of Breath</label>
+                    <label><input type="checkbox" value="Cough"> Cough</label>
+                    <label><input type="checkbox" value="Fever"> Fever</label>
+                    <label><input type="checkbox" value="Loss of Taste"> Loss of Taste</label>
+                    <label><input type="checkbox" value="Wheezing"> Wheezing</label>
+                    <label><input type="checkbox" value="Frequent Urination"> Frequent Urination</label>
+                    <label><input type="checkbox" value="Blurred Vision"> Blurred Vision</label>
+                    <label><input type="checkbox" value="Weight Loss"> Weight Loss</label>
+                    <label><input type="checkbox" value="Night Sweats"> Night Sweats</label>
+                    <label><input type="checkbox" value="Body Aches"> Body Aches</label>
+                    <label><input type="checkbox" value="Sore Throat"> Sore Throat</label>
+                    <label><input type="checkbox" value="Joint Pain"> Joint Pain</label>
+                    <label><input type="checkbox" value="Fatigue"> Fatigue</label>
+                    <label><input type="checkbox" value="Stiffness"> Stiffness</label>
+                    <label><input type="checkbox" value="Chest Pain"> Chest Pain</label>
+                    <label><input type="checkbox" value="Headache"> Headache</label>
+                    <label><input type="checkbox" value="Pain"> Pain</label>
+                    <label><input type="checkbox" value="Runny Nose"> Runny Nose</label>
+                    <label><input type="checkbox" value="Thirst"> Thirst</label>
+                    <label><input type="checkbox" value="Swelling"> Swelling</label>
+                </div>
+            </div> <br>
+            <h2>You selected :</h2>
+            <div class="selected-items" id="selectedSymptoms">None</div>
+        
+            <script>
+                function toggleDropdown() {
+                    let dropdown = document.querySelector(".dropdown-content");
+                    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+                }
+        
+                document.querySelectorAll(".dropdown-content input").forEach(checkbox => {
+                    checkbox.addEventListener("change", function() {
+                        let selected = Array.from(document.querySelectorAll(".dropdown-content input:checked"))
+                                            .map(cb => cb.value);
+                        
+                        document.getElementById("selectedSymptoms").innerHTML = selected.length ? selected.join(", ") : "None";
+                    });
+                });
+        
+                // Close dropdown when clicking outside
+                document.addEventListener("click", function(event) {
+                    let dropdown = document.querySelector(".dropdown");
+                    if (!dropdown.contains(event.target)) {
+                        document.querySelector(".dropdown-content").style.display = "none";
+                    }
+                });
+            </script>
+        
+                </div>
+    </section>
+</body>
+</html>
